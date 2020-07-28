@@ -1,6 +1,5 @@
 <template lang="pug">
   .container
-    Menu
     div
       logo
       h1.title
@@ -21,12 +20,9 @@
 
 <script>
 import Logo from "@/components/Logo.vue";
-import Menu from "@/components/Menu";
-
 export default {
   components: {
-    Logo,
-    Menu
+    Logo
   },
   data() {
     return {

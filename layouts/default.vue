@@ -1,8 +1,16 @@
 <template lang="pug">
   div
+    Menu
     nuxt
 </template>
-
+<script>
+import Menu from "@/components/Menu";
+export default {
+  components: {
+    Menu
+  }
+};
+</script>
 <style lang="scss">
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
