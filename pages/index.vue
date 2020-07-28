@@ -1,5 +1,6 @@
 <template lang="pug">
   .container
+    Menu
     div
       logo
       h1.title
@@ -19,15 +20,17 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue';
+import Logo from "@/components/Logo.vue";
+import Menu from "@/components/Menu";
 
 export default {
   components: {
-    Logo
+    Logo,
+    Menu
   },
   data() {
     return {
-      title: 'NUXT'
+      title: "NUXT"
     };
   },
   head() {
@@ -35,14 +38,14 @@ export default {
       titleTemplate: this.title,
       meta: [
         {
-          hid: 'description',
-          name: 'description',
-          content: 'My custom description'
+          hid: "description",
+          name: "description",
+          content: "My custom description"
         },
         {
-          hid: 'og:type',
-          property: 'og:type',
-          content: 'website'
+          hid: "og:type",
+          property: "og:type",
+          content: "website"
         }
       ]
     };
@@ -61,8 +64,8 @@ export default {
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
