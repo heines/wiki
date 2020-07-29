@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  .main
     Menu
     nuxt
 </template>
@@ -58,5 +58,9 @@ html {
 .button--grey:hover {
   color: $color-text-hover;
   background-color: $color-link;
+}
+
+.main {
+  display: flex;
 }
 </style>

@@ -12,6 +12,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .menu {
-  height: 100%;
+  width: 85px;
+  height: 100vh;
+  background-color: $color-key;
 }
 </style>

@@ -23,7 +23,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .hamburger {
-  background-color: $color-key;
   &__icon {
     position: relative;
     cursor: pointer;
