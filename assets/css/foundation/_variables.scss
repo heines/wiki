@@ -26,6 +26,12 @@ $break-point-tablet-l: 1024px;
 $break-point-tablet-p: 768px;
 $break-point-mobile-p: 414px;
 
+// z-index
+$z-map-reverse: false !default;
 $z-map: (
   contents: true,
-);
+  menu: (
+    bg: true,
+    link: true
+  )
+) !default;

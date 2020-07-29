@@ -1,6 +1,6 @@
 <template lang="pug">
   .hamburger(
-    :class = "{ 'is-opened': isOpened }"
+    :class = "{ 'is-opened': $store.state.menu.isOpenedMenu }"
     )
     .hamburger__icon(
       @click = "toggleHum"
@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     toggleHum() {
-      this.isOpened = !this.isOpened;
+      this.$store.commit("menu/toggleModalMenu", "toggleModalMenu");
     }
   }
 };
