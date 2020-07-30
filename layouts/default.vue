@@ -61,6 +61,8 @@ html {
 }
 
 .main {
-  display: flex;
+  @include l-more-than-mobile {
+    display: flex;
+  }
 }
 </style>
