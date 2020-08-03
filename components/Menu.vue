@@ -3,6 +3,21 @@
     :class = "{ 'is-opened': $store.state.menu.isOpenedMenu }"
     )
     Hamburger.menu__ham
+    .menu__body(
+      :class = "{ 'is-opened': $store.state.menu.isOpenedMenu }"
+      )
+      .menu__item
+        nuxt-link.button--green(
+          to = "next"
+          @click.native = "close"
+          )
+          |next
+      .menu__item
+        nuxt-link.button--green(
+          to = "login"
+          @click.native = "close"
+          )
+          |login
     .menu__bg
 </template>
 <script>
@@ -10,6 +25,11 @@ import Hamburger from "@/components/atoms/Hamburger";
 export default {
   components: {
     Hamburger
+  },
+  methods: {
+    close() {
+      this.$store.commit("menu/toggleModalMenu", "toggleModalMenu");
+    }
   }
 };
 </script>
@@ -38,13 +58,17 @@ export default {
     z-index: z(menu, bg);
     opacity: 0.9;
   }
-  &__ham {
+  &__ham,
+  &__body {
     position: relative;
     z-index: z(menu, link);
   }
   /*
    * transition
    */
+  &__body {
+    opacity: 0;
+  }
   &__bg {
     transition-duration: 0.2s;
     @include l-more-than-mobile {
@@ -56,6 +80,9 @@ export default {
     }
   }
   &.is-opened & {
+    &__body {
+      opacity: 1;
+    }
     &__bg {
       transition-duration: 0.2s;
       @include l-more-than-mobile {
