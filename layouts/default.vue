@@ -31,35 +31,6 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid $color-key;
-  color: $color-key;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: $color-text-hover;
-  background-color: $color-key;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid $color-link;
-  color: $color-link;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: $color-text-hover;
-  background-color: $color-link;
-}
-
 .main {
   @include l-more-than-mobile {
     display: flex;

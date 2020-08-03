@@ -7,22 +7,28 @@
       h2.subtitle
         |template
       .links
-        a.button--green(
-          href="https://github.com/heines/nuxtjs"
-          target="_blank"
-        )
+        Btn(
+          tag = "a"
+          href = "https://github.com/heines/nuxtjs"
+          :isBlank = "true"
+          )
           |GitHub
-        nuxt-link.button--grey(
-          to="next"
+        Btn(
+          tag = "nuxt-link"
+          to = "next"
+          color = "grey"
+          :isBlank = "true"
           )
           |to NEXT page
 </template>
 
 <script>
 import Logo from "@/components/Logo.vue";
+import Btn from "@/components/atoms/Btn.vue";
 export default {
   components: {
-    Logo
+    Logo,
+    Btn
   },
   data() {
     return {
