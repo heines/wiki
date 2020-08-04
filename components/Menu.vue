@@ -7,24 +7,26 @@
       :class = "{ 'is-opened': $store.state.menu.isOpenedMenu }"
       )
       .menu__item
-        nuxt-link.button--green(
+        Link(
           to = "next"
+          label = "next"
           @click.native = "close"
           )
-          |next
       .menu__item
-        nuxt-link.button--green(
+        Link(
           to = "login"
+          label = "login"
           @click.native = "close"
           )
-          |login
     .menu__bg
 </template>
 <script>
 import Hamburger from "@/components/atoms/Hamburger";
+import Link from "@/components/atoms/Link";
 export default {
   components: {
-    Hamburger
+    Hamburger,
+    Link
   },
   methods: {
     close() {
