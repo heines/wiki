@@ -5,5 +5,4 @@
       |topic page
 </template>
 
-<script>
-</script>
+<script></script>

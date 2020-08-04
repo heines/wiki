@@ -5,5 +5,4 @@
       |wiki page
 </template>
 
-<script>
-</script>
+<script></script>
