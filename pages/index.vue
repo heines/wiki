@@ -1,7 +1,6 @@
 <template lang="pug">
   .container
     div
-      logo
       h1.title
         |nuxtjs
       h2.subtitle
@@ -63,6 +62,9 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+  @include l-mobile {
+    padding-top: 40px;
+  }
 }
 
 .title {

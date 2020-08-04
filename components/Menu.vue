@@ -40,7 +40,7 @@ export default {
   z-index: z(menu);
   @include l-more-than-mobile {
     position: relative;
-    width: 85px;
+    width: 42px;
     height: 100vh;
   }
   @include l-mobile {
@@ -67,7 +67,11 @@ export default {
     position: relative;
     z-index: z(menu, link);
   }
+  &__ham {
+    pointer-events: auto;
+  }
   &__body {
+    margin-left: 7px;
     &::after {
       @include l-more-than-mobile {
         width: 100%;
@@ -85,6 +89,10 @@ export default {
   /*
    * transition
    */
+  pointer-events: none;
+  &.is-opened {
+    pointer-events: auto;
+  }
   &__body {
     @include l-mobile {
       opacity: 0;

@@ -28,12 +28,12 @@ export default {
     cursor: pointer;
     pointer-events: painted;
     @include l-more-than-mobile {
-      width: 80px;
-      height: 80px;
+      width: 40px;
+      height: 40px;
     }
     @include l-mobile {
-      width: 25px;
-      height: 25px;
+      width: 40px;
+      height: 40px;
     }
     &-bar {
       position: absolute;
@@ -44,11 +44,11 @@ export default {
       margin: auto;
       background-color: $color-base;
       @include l-more-than-mobile {
-        width: 52px;
-        height: 4px;
+        width: 30px;
+        height: 2px;
       }
       @include l-mobile {
-        width: 25px;
+        width: 30px;
         height: 2px;
       }
       &::before,
@@ -92,10 +92,10 @@ export default {
           transition-property: transform;
         }
         &::before {
-          transform: translateY(3px) rotate(30deg);
+          transform: translateY(0.5px) rotate(30deg);
         }
         &::after {
-          transform: translateY(-3px) rotate(-30deg);
+          transform: translateY(-0.5px) rotate(-30deg);
         }
       }
     }
