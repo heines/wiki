@@ -1,6 +1,6 @@
 <template lang="pug">
-  nuxt-router.link(
-    to = "to"
+  nuxt-link.link(
+    :to = "to"
     )
     |{{ label }}
 </template>
