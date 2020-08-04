@@ -6,10 +6,14 @@ export default {
       required: true
     },
     to: {
-      type: String
+      type: String,
+      required: false,
+      default: ""
     },
     href: {
-      type: String
+      type: String,
+      required: false,
+      default: ""
     },
     color: {
       type: String,
