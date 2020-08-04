@@ -2,7 +2,11 @@
   .menu(
     :class = "{ 'is-opened': $store.state.menu.isOpenedMenu }"
     )
-    Hamburger.menu__ham
+    .menu__header
+      nuxt-link.menu__logo(
+        to = "/"
+        )
+      Hamburger.menu__ham
     .menu__body(
       :class = "{ 'is-opened': $store.state.menu.isOpenedMenu }"
       )
@@ -50,6 +54,14 @@ export default {
     width: 100%;
     height: 100%;
   }
+  &__header {
+    @include l-mobile {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-flow: row-reverse;
+    }
+  }
   &__bg {
     position: absolute;
     top: 0;
@@ -62,13 +74,31 @@ export default {
       opacity: 0.9;
     }
   }
+  &__logo,
   &__ham,
   &__body {
     position: relative;
     z-index: z(menu, link);
   }
+  &__logo,
   &__ham {
     pointer-events: auto;
+    cursor: pointer;
+  }
+  &__logo {
+    display: block;
+    background-color: #fff;
+    @include l-more-than-mobile {
+      width: 30px;
+      height: 30px;
+      margin-top: 5px;
+      margin-left: 5px;
+    }
+    @include l-mobile {
+      width: 25px;
+      height: 25px;
+      margin-right: 5px;
+    }
   }
   &__body {
     margin-left: 7px;
