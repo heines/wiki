@@ -22,5 +22,6 @@ export default {
 .link {
   cursor: pointer;
   color: #fff;
+  text-decoration: none;
 }
 </style>

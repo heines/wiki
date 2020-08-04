@@ -58,18 +58,46 @@ export default {
     height: 100%;
     background-color: $color-key;
     z-index: z(menu, bg);
-    opacity: 0.9;
+    @include l-mobile {
+      opacity: 0.9;
+    }
   }
   &__ham,
   &__body {
     position: relative;
     z-index: z(menu, link);
   }
+  &__body {
+    &::after {
+      @include l-more-than-mobile {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: "";
+        background-color: $color-key;
+      }
+    }
+  }
   /*
    * transition
    */
   &__body {
-    opacity: 0;
+    @include l-mobile {
+      opacity: 0;
+      transition-duration: 0.2s;
+    }
+    &::after {
+      @include l-more-than-mobile {
+        transition: transform;
+        transition-duration: 0.2s;
+        transition-delay: 0.2s;
+        transform-origin: right;
+      }
+    }
   }
   &__bg {
     transition-duration: 0.2s;
@@ -83,7 +111,19 @@ export default {
   }
   &.is-opened & {
     &__body {
-      opacity: 1;
+      @include l-mobile {
+        opacity: 1;
+        transition-duration: 0.2s;
+      }
+      &::after {
+        @include l-more-than-mobile {
+          transition: transform;
+          transition-duration: 0.2s;
+          transition-delay: 0.2s;
+          transform: scaleX(0);
+          transform-origin: right;
+        }
+      }
     }
     &__bg {
       transition-duration: 0.2s;
