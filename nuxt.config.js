@@ -1,3 +1,4 @@
+import config from "./.contentful.json";
 require("dotenv").config();
 
 export default {
@@ -6,7 +7,12 @@ export default {
    ** Environments
    */
   env: {
-    baseUrl: process.env.BASE_URL || "http://localhost:3000"
+    baseUrl: process.env.BASE_URL || "http://localhost:3000",
+    // contentful
+    CTF_SPACE_ID: config.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
+    CTF_PERSON_ID: config.CTF_PERSON_ID,
+    CTF_BLOG_POST_TYPE_ID: config.CTF_BLOG_POST_TYPE_ID
   },
   router: {
     base: process.env.SUBDIR
@@ -74,7 +80,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ["plugins/contentful"],
   /*
    ** Nuxt.js dev-modules
    */
