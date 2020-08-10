@@ -5,6 +5,29 @@
         |nuxtjs
       h2.subtitle
         |template
+      h3
+        |Course
+      ul
+        li(
+          v-for = "(post, index) in courses"
+          :key = "`courses-${index}`"
+          )
+          nuxt-link(
+            :to = "{ name: 'slug-id', params: { slug: 'course', id: post.fields.slug } }"
+            @click.native = "setData(post.fields)"
+            )
+            |{{ post.fields.title }}
+      h3
+        |Lesson
+      ul
+        li(
+          v-for = "(post, index) in lessons"
+          :key = "`lessons-${index}`"
+          )
+          nuxt-link(
+            :to = "{ name: 'wiki-id', params: { id: post.fields.slug } }"
+            )
+            |{{ post.fields.title }}
       .links
         Btn(
           tag = "a"
@@ -24,10 +47,34 @@
 <script>
 import Logo from "@/components/Logo.vue";
 import Btn from "@/components/atoms/Btn.vue";
+import { createClient } from "~/plugins/contentful.js";
+const client = createClient();
 export default {
   components: {
     Logo,
     Btn
+  },
+  asyncData({ env }) {
+    return Promise.all([
+      // fetch all blog posts sorted by creation date
+      client.getEntries({
+        content_type: "course",
+        order: "-sys.createdAt"
+      }),
+      client.getEntries({
+        content_type: "lesson",
+        order: "-sys.createdAt"
+      })
+    ])
+      .then(([courses, lessons]) => {
+        // return data that should be available
+        // in the template
+        return {
+          courses: courses.items,
+          lessons: lessons.items
+        };
+      })
+      .catch(console.error);
   },
   data() {
     return {
@@ -50,6 +97,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    setData(data) {
+      this.$store.commit("blog/setBlogData", data);
+    }
   }
 };
 </script>

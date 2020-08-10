@@ -6,7 +6,7 @@
     h2 course
     ul
       li(
-        v-for="(post, index) in posts"
+        v-for = "(post, index) in posts"
         :key = "index"
         )
         nuxt-link.button--green(
@@ -43,6 +43,11 @@ export default {
       data: ""
     };
   },
+  methods: {
+    setData(data) {
+      this.$store.commit("blog/setBlogData", data);
+    }
+  },
   head() {
     return {
       title: this.title,
@@ -59,11 +64,6 @@ export default {
         }
       ]
     };
-  },
-  methods: {
-    setData(data) {
-      this.$store.commit("blog/setBlogData", data);
-    }
   }
 };
 </script>
