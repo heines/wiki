@@ -1,47 +1,39 @@
 <template lang="pug">
   .container
-    div
+    .contents
       h1.title
         |TEA Time
       h2.subtitle
         |伝えたいことを優しく残す
-      h3
-        |Course
-      ul
-        li(
-          v-for = "(post, index) in courses"
-          :key = "`courses-${index}`"
-          )
-          nuxt-link(
-            :to = "{ name: 'slug-id', params: { slug: 'course', id: post.fields.slug } }"
-            @click.native = "setData(post.fields)"
-            )
-            |{{ post.fields.title }}
-      h3
-        |Lesson
-      ul
-        li(
-          v-for = "(post, index) in lessons"
-          :key = "`lessons-${index}`"
-          )
-          nuxt-link(
-            :to = "{ name: 'wiki-id', params: { id: post.fields.slug } }"
-            )
-            |{{ post.fields.title }}
-      .links
-        Btn(
-          tag = "a"
-          href = "https://github.com/heines/nuxtjs"
-          :isBlank = "true"
-          )
-          |GitHub
-        Btn(
-          tag = "nuxt-link"
-          to = "next"
-          color = "grey"
-          :isBlank = "true"
-          )
-          |to NEXT page
+      .contents__body
+        .contents__item
+          h3 記事を投稿する
+          h3 Wikiを書く
+        .contents__item
+          h3 新着
+          h4
+            |投稿記事
+          ul
+            li(
+              v-for = "(post, index) in courses"
+              :key = "`courses-${index}`"
+              )
+              nuxt-link(
+                :to = "{ name: 'slug-id', params: { slug: 'course', id: post.fields.slug } }"
+                @click.native = "setData(post.fields)"
+                )
+                |{{ post.fields.title }}
+          h4
+            |Wiki
+          ul
+            li(
+              v-for = "(post, index) in lessons"
+              :key = "`lessons-${index}`"
+              )
+              nuxt-link(
+                :to = "{ name: 'wiki-id', params: { id: post.fields.slug } }"
+                )
+                |{{ post.fields.title }}
 </template>
 
 <script>
@@ -108,10 +100,10 @@ export default {
 
 <style lang="scss">
 .container {
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
   @include l-mobile {
     padding-top: 40px;
   }
@@ -137,7 +129,20 @@ export default {
   padding-bottom: 15px;
 }
 
-.links {
-  padding-top: 15px;
+.contents {
+  width: 100%;
+  padding-left: 20px;
+  &__body {
+    width: 100%;
+    @include l-more-than-mobile {
+      display: flex;
+      flex-flow: row-reverse;
+    }
+  }
+  &__item {
+    @include l-more-than-mobile {
+      width: 50%;
+    }
+  }
 }
 </style>
