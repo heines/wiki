@@ -12,13 +12,13 @@
       )
       .menu__item
         Link(
-          to = "next"
+          to = "/next"
           label = "next"
           @click.native = "close"
           )
       .menu__item
         Link(
-          to = "login"
+          to = "/login"
           label = "login"
           @click.native = "close"
           )
