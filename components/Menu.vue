@@ -6,6 +6,7 @@
       nuxt-link.menu__logo(
         to = "/"
         )
+        Icon
       Hamburger.menu__ham
     .menu__body(
       :class = "{ 'is-opened': $store.state.menu.isOpenedMenu }"
@@ -27,10 +28,12 @@
 <script>
 import Hamburger from "@/components/atoms/Hamburger";
 import Link from "@/components/atoms/Link";
+import Icon from "@/components/atoms/Icon";
 export default {
   components: {
     Hamburger,
-    Link
+    Link,
+    Icon
   },
   methods: {
     close() {
@@ -87,17 +90,22 @@ export default {
   }
   &__logo {
     display: block;
-    background-color: #fff;
     @include l-more-than-mobile {
-      width: 30px;
-      height: 30px;
       margin-top: 5px;
       margin-left: 5px;
     }
     @include l-mobile {
-      width: 25px;
-      height: 25px;
       margin-right: 5px;
+    }
+    svg {
+      @include l-more-than-mobile {
+        width: 30px !important;
+        height: 30px !important;
+      }
+      @include l-mobile {
+        width: 25px !important;
+        height: 25px !important;
+      }
     }
   }
   &__body {

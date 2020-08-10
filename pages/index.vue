@@ -2,9 +2,9 @@
   .container
     div
       h1.title
-        |nuxtjs
+        |TEA Time
       h2.subtitle
-        |template
+        |伝えたいことを優しく残す
       h3
         |Course
       ul
@@ -108,12 +108,10 @@ export default {
 
 <style lang="scss">
 .container {
-  margin: 0 auto;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   @include l-mobile {
     padding-top: 40px;
   }
@@ -123,15 +121,17 @@ export default {
   font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
+  margin: 0;
   font-weight: 300;
-  font-size: 100px;
+  @include fontSizeAll(72, 64, 36);
+  line-height: 1;
   color: $color-title;
   letter-spacing: 1px;
 }
 
 .subtitle {
   font-weight: 300;
-  font-size: 42px;
+  @include fontSizeAll(36, 32, 18);
   color: $color-subtitle;
   word-spacing: 5px;
   padding-bottom: 15px;
