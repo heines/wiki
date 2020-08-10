@@ -11,6 +11,7 @@
         )
         nuxt-link.button--green(
           :to = "{ name: 'slug-id', params: { slug: 'course', id: post.fields.slug } }"
+          @click.native = "setData(post.fields)"
           )
           |{{ post.fields.title }}
 </template>
@@ -58,6 +59,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    setData(data) {
+      this.$store.commit("blog/setBlogData", data);
+    }
   }
 };
 </script>

@@ -98,8 +98,12 @@ export default {
     "@nuxtjs/axios",
     // Doc: https://github.com/nuxt-community/dotenv-module
     "@nuxtjs/dotenv",
-    "@nuxtjs/style-resources"
+    "@nuxtjs/style-resources",
+    "@nuxtjs/markdownit"
   ],
+  markdownit: {
+    injected: true
+  },
   styleResources: {
     // 指定したSCSSファイルをvueファイル内のstyleタグの中で有効とする
     scss: [
