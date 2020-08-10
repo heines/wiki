@@ -9,12 +9,10 @@
         v-for="(post, index) in posts"
         :key = "index"
         )
-        |{{ post.fields.title }}
-    .links
-      nuxt-link.button--green(
-        to = "/"
-        )
-        |to TOP page
+        nuxt-link.button--green(
+          :to = "{ name: 'slug-id', params: { slug: 'course', id: post.fields.slug } }"
+          )
+          |{{ post.fields.title }}
 </template>
 
 <script>
