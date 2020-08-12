@@ -5,6 +5,7 @@
     .menu__header
       nuxt-link.menu__logo(
         to = "/"
+        @click.native = "close"
         )
         Icon
       Hamburger.menu__ham
@@ -37,7 +38,7 @@ export default {
   },
   methods: {
     close() {
-      this.$store.commit("menu/toggleModalMenu", "toggleModalMenu");
+      this.$store.commit("menu/closeModalMenu", "closeModalMenu");
     }
   }
 };
