@@ -73,6 +73,11 @@ export default {
       title: "NUXT"
     };
   },
+  methods: {
+    setData(data) {
+      this.$store.commit("blog/setBlogData", data);
+    }
+  },
   head() {
     return {
       titleTemplate: this.title,
@@ -89,11 +94,6 @@ export default {
         }
       ]
     };
-  },
-  methods: {
-    setData(data) {
-      this.$store.commit("blog/setBlogData", data);
-    }
   }
 };
 </script>

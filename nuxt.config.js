@@ -3,6 +3,7 @@ require("dotenv").config();
 
 export default {
   mode: "universal",
+  srcDir: "src",
   /*
    ** Environments
    */
