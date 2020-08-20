@@ -1,24 +1,21 @@
 const functions = require("firebase-functions");
+const express = require("express");
 const { Nuxt } = require("nuxt");
-const app = require("express")();
-const nuxt = new Nuxt({
+
+const app = express();
+const config = {
   dev: false,
-  buildDir: ".nuxt",
+  buildDir: "nuxt",
   build: {
-    publicPath: "/"
+    publicPath: "/assets/"
   }
-});
+};
+const nuxt = new Nuxt(config);
 
-function handler(req, res) {
-  nuxt
-    .renderRoute("/", { req })
-    .then((result) => {
-      res.send(result.html);
-    })
-    .catch((e) => {
-      res.send(e);
-    });
+async function handleRequest(req, res) {
+  res.set("Cache-Control", "public, max-age=300, s-maxage=600")
+  await nuxt.ready(); // ← nuxt.ready()でawaitしないといけなくなった！！
+  return await nuxt.render(req, res);
 }
-
-app.use(handler);
-exports.app = functions.https.onRequest(app);
+app.use(handleRequest);
+exports.ssr = functions.https.onRequest(app);
