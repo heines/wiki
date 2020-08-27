@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "rm -r public/assets/* && nuxt build && cp -R functions/nuxt/dist public/assets",
+    "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
