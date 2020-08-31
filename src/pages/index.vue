@@ -39,8 +39,7 @@
 <script>
 import Logo from "@/components/Logo.vue";
 import Btn from "@/components/atoms/Btn.vue";
-import { createClient } from "~/plugins/contentful.js";
-const client = createClient();
+import client from "@/plugins/contentful.js";
 export default {
   components: {
     Logo,
