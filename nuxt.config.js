@@ -9,12 +9,12 @@ export default {
   generate: {
     routes() {
       return client.getEntries({
-        content_type: process.CTF_BLOG_POST_TYPE_ID,
+        content_type: process.env.CTF_BLOG_POST_TYPE_ID,
       })
       .then(posts => {
         return [...posts.items.map(post => {
           return {
-            route: `/${process.CTF_BLOG_POST_TYPE_ID}/${post.fields.slug}`,
+            route: `/${process.env.CTF_BLOG_POST_TYPE_ID}/${post.fields.slug}`,
             payload: post
           }
         })]
@@ -25,12 +25,12 @@ export default {
    ** Environments
    */
   env: {
-    baseUrl: process.env.BASE_URL || "http://localhost:3000",
+    baseUrl: process.env.env.BASE_URL || "http://localhost:3000",
     // contentful
-    CTF_SPACE_ID: process.CTF_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: process.CTF_CDA_ACCESS_TOKEN,
-    CTF_PERSON_ID: process.CTF_PERSON_ID,
-    CTF_BLOG_POST_TYPE_ID: process.CTF_BLOG_POST_TYPE_ID
+    CTF_SPACE_ID: process.env.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
+    CTF_PERSON_ID: process.env.CTF_PERSON_ID,
+    CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID
   },
   router: {
     base: process.env.SUBDIR
