@@ -1,9 +1,8 @@
 require("dotenv").config();
-const client = require("./src/plugins/contentful").default;
+const client = require("./plugins/contentful").default;
 
 export default {
   mode: "universal",
-  srcDir: "src",
   /*
    ** Generate
    */
