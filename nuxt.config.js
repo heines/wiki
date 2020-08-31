@@ -25,7 +25,7 @@ export default {
    ** Environments
    */
   env: {
-    baseUrl: process.env.env.BASE_URL || "http://localhost:3000",
+    baseUrl: process.env.BASE_URL || "http://localhost:3000",
     // contentful
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
     CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
