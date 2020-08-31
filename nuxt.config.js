@@ -7,6 +7,16 @@ export default {
   /*
    ** Generate
    */
+  generate: {
+    routes() {
+      return client.getEntries({
+        content_type: process.CTF_BLOG_POST_TYPE_ID,
+      })
+      .then(posts => {
+        return [...posts.items.map(post => `/${process.CTF_BLOG_POST_TYPE_ID}/${post.fields.slug}`)]
+      })
+    }
+  },
   /*
    ** Environments
    */
