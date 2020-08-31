@@ -1,31 +1,36 @@
 <template lang="pug">
 .blog
   h1.title
-    |{{ post.title }}
+    |{{ post.fields.title }}
   .desc(
-    v-html = "$md.render(post.description)"
+    v-html = "$md.render(post.fields.description)"
     )
 </template>
 <script>
 import client from "@/plugins/contentful.js";
 export default {
-  asyncData({ env, route }) {
-    return Promise.all([
-      // fetch all blog posts sorted by creation date
-      client.getEntries({
-        content_type: env.CTF_BLOG_POST_TYPE_ID,
-        "fields.slug[match]": route.params.id,
-        order: "-sys.createdAt"
-      })
-    ])
-      .then((post) => {
-        // return data that should be available
-        // in the template
-        return {
-          post: post[0].items[0].fields
-        };
-      })
-      .catch(console.error);
+  asyncData({ env, route, payload }) {
+    if (payload) {
+      const post = payload;
+      return post;
+    } else {
+      return Promise.all([
+        // fetch all blog posts sorted by creation date
+        client.getEntries({
+          content_type: env.CTF_BLOG_POST_TYPE_ID,
+          "fields.slug[match]": route.params.id,
+          order: "-sys.createdAt"
+        })
+      ])
+        .then((post) => {
+          // return data that should be available
+          // in the template
+          return {
+            post: post[0].items[0]
+          };
+        })
+        .catch(console.error);
+    }
   },
   methods: {
     setData(data) {

@@ -12,7 +12,12 @@ export default {
         content_type: process.CTF_BLOG_POST_TYPE_ID,
       })
       .then(posts => {
-        return [...posts.items.map(post => `/${process.CTF_BLOG_POST_TYPE_ID}/${post.fields.slug}`)]
+        return [...posts.items.map(post => {
+          return {
+            route: `/${process.CTF_BLOG_POST_TYPE_ID}/${post.fields.slug}`,
+            payload: post
+          }
+        })]
       })
     }
   },
