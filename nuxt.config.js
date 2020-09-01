@@ -8,17 +8,20 @@ export default {
    */
   generate: {
     routes() {
-      return client.getEntries({
-        content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-      })
-      .then(posts => {
-        return [...posts.items.map(post => {
-          return {
-            route: `/${process.env.CTF_BLOG_POST_TYPE_ID}/${post.fields.slug}`,
-            payload: post
-          }
-        })]
-      })
+      return client
+        .getEntries({
+          content_type: process.env.CTF_BLOG_POST_TYPE_ID
+        })
+        .then((posts) => {
+          return [
+            ...posts.items.map((post) => {
+              return {
+                route: `/${process.env.CTF_BLOG_POST_TYPE_ID}/${post.fields.slug}`,
+                payload: post
+              };
+            })
+          ];
+        });
     }
   },
   /*
