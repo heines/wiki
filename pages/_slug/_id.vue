@@ -12,7 +12,11 @@ export default {
   asyncData({ env, route, payload }) {
     if (payload) {
       const post = payload;
-      return post;
+      return {
+        post,
+        title: post.fields.title,
+        desc: post.fields.description
+      }
     } else {
       return Promise.all([
         // fetch all blog posts sorted by creation date
