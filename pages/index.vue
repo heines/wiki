@@ -1,9 +1,9 @@
 <template lang="pug">
-.index
-  .hero
+.index.has-background-white-ter
+  .hero.is-medium.has-background-white-bis
     .hero-body
       .container
-        h1.title
+        h1.title.is-key
           |TEA Time
         h2.subtitle
           |伝えたいことを優しく残す
