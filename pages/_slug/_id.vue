@@ -1,9 +1,9 @@
 <template lang="pug">
 .blog
   h1.title
-    |{{ post.fields.title }}
+    |{{ title }}
   .desc(
-    v-html = "$md.render(post.fields.description)"
+    v-html = "$md.render(desc)"
     )
 </template>
 <script>
@@ -26,7 +26,9 @@ export default {
           // return data that should be available
           // in the template
           return {
-            post: post[0].items[0]
+            post: post[0].items[0],
+            title: post[0].items[0].fields.title,
+            desc: post[0].items[0].fields.description
           };
         })
         .catch(console.error);
@@ -52,6 +54,12 @@ export default {
           content: "article"
         }
       ]
+    };
+  },
+  date() {
+    return {
+      title: "",
+      desc: ""
     };
   }
 };
