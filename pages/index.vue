@@ -12,30 +12,25 @@
       h3 記事を投稿する
       h3 Wikiを書く
     .column
-      h3 新着
-      h4
+      h3.subtitle.is-5
+        |新着
+      h4.subtitle.is-6
         |投稿記事
-      ul.box
-        li(
-          v-for = "(post, index) in courses"
-          :key = "`courses-${index}`"
-          )
-          nuxt-link(
-            :to = "{ name: 'slug-id', params: { slug: 'course', id: post.fields.slug } }"
-            @click.native = "setData(post.fields)"
-            )
-            |{{ post.fields.title }}
-      h4
+      nuxt-link.box(
+        v-for = "(post, index) in newBlog"
+        :key = "`courses-${index}`"
+        :to = "{ name: 'slug-id', params: { slug: 'course', id: post.fields.slug } }"
+        @click.native = "setData(post.fields)"
+        )
+        |{{ post.fields.title }}
+      h4.subtitle.is-6
         |Wiki
-      ul.box
-        li(
-          v-for = "(post, index) in lessons"
-          :key = "`lessons-${index}`"
-          )
-          nuxt-link(
-            :to = "{ name: 'wiki-id', params: { id: post.fields.slug } }"
-            )
-            |{{ post.fields.title }}
+      nuxt-link.box(
+        v-for = "(post, index) in newWiki"
+        :key = "`lessons-${index}`"
+        :to = "{ name: 'wiki-id', params: { id: post.fields.slug } }"
+        )
+        |{{ post.fields.title }}
 </template>
 
 <script>
@@ -73,6 +68,14 @@ export default {
     return {
       title: "TEA Time"
     };
+  },
+  computed: {
+    newBlog() {
+      return this.courses.slice(0, 5);
+    },
+    newWiki() {
+      return this.lessons.slice(0, 3);
+    }
   },
   methods: {
     setData(data) {
