@@ -32,6 +32,7 @@ html {
 }
 
 .main {
+  width: 100%;
   @include l-more-than-mobile {
     display: flex;
   }

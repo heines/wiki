@@ -1,7 +1,10 @@
 <template lang="pug">
 .blog
-  h1.title
-    |{{ title }}
+  .hero.is-light
+    .hero-body
+      .container
+        h1.title
+          |{{ title }}
   .desc(
     v-html = "$md.render(desc)"
     )

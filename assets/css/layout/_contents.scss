@@ -3,3 +3,7 @@
   color: $color-text;
   @include fontSizeAll(14, 14, 12);
 }
+
+.column-row-reverse {
+   flex-direction: row-reverse;
+}
