@@ -16,7 +16,7 @@ export default {
         post,
         title: post.fields.title,
         desc: post.fields.description
-      }
+      };
     } else {
       return Promise.all([
         // fetch all blog posts sorted by creation date

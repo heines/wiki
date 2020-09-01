@@ -120,7 +120,8 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     ["@nuxtjs/dotenv", { systemvars: true }],
     "@nuxtjs/style-resources",
-    "@nuxtjs/markdownit"
+    "@nuxtjs/markdownit",
+    "@nuxtjs/bulma"
   ],
   markdownit: {
     injected: true
