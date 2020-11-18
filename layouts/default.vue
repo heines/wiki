@@ -1,7 +1,5 @@
 <template lang="pug">
-  .main
-    Menu
-    nuxt
+  nuxt
 </template>
 <script>
 import Menu from "@/components/Menu";
